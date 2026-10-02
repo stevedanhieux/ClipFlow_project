@@ -1,0 +1,15 @@
+Import the supplied ClipFlow source as the existing application. Preserve its implementation and all included updates. Do not regenerate a different app from the feature list.
+
+Use the repository-root package.json and preserve file paths. The source package includes server.js and studioServer.js, along with their TypeScript sources. Use Node.js 22.13 or newer. For startup use the package scripts; configure the managed preview port through PORT. The hosted package listens on 0.0.0.0 and defaults the AI director to Gemini.
+
+Keep these implemented features: export library checkboxes/select all/delete selected/delete all; drag-and-drop video/image import; the social import tab; AI provider selection; validated AI draft editing and follow-up revisions; opt-in accepted-instruction preference memory; draft preview rendering; clip trimming, splitting, reordering, captions, volume, undo/redo; and disk-based MP4 rendering without a 60-minute app cap.
+
+Use GEMINI_API_KEY only from server-side Secrets. Do not put credentials in React code, a VITE variable, a committed .env, or the prompt. Retain other cloud providers when their server credentials are configured. Do not describe paid APIs as unlimited free services. Local Ollama is an option for local deployment and cannot be reached on my PC through localhost from your hosted server.
+
+First run type checks and the production build. Then check startup, source import, export checkboxes, invalid clip boundaries, AI draft errors, and draft acceptance. Check actual runtime availability of FFmpeg, FFprobe, and yt-dlp before claiming MP4 exports or social imports work. Do not silently remove these features or substitute mock success if a tool is absent. Preserve the existing actionable errors and report missing runtime dependencies.
+
+If the managed preview cannot install those tools or persist media reliably, explain the specific missing capability. Keep the editor/source intact. Describe the external worker/persistent storage required for hosted long-video rendering. Do not claim an hour-long render was verified unless you actually test it.
+
+Preference memory is not model retraining. The director currently edits timeline metadata rather than analyzing/transcribing footage or generating new footage. Posting currently opens platform upload pages after download; automatic posting and professional multitrack editing are not implemented.
+
+Do not publish the app, create a new repository, connect social accounts, or replace unrelated user files as part of this import. After importing, list the files applied, build/test results, and any remaining environment requirements.
